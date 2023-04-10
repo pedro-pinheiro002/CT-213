@@ -139,8 +139,7 @@ class Simulation:
         track_tangent = self.track.get_tangent(self.line_follower.pose.position)  # t_k
         robot_direction = Vector2(cos(self.line_follower.pose.rotation), sin(self.line_follower.pose.rotation))  # r_k
         dot_product = track_tangent.dot(robot_direction)  # dot(r_k, t_k)
-        # Todo: implement
-        reward = linear * dot_product - w*fabs(error)
+        reward = linear * dot_product - 0.5*fabs(error)
         return reward
 
     def draw(self, window):
